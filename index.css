@@ -16,7 +16,7 @@
   
   .glitch {
     color: white;
-    font-size: 10rem;
+    font-size: 8vmin;
     text-shadow: 5px 5px cyan;
     font-style: italic;
     animation: glitch 725ms infinite;
