@@ -7,10 +7,12 @@
     <title>Document</title>
 </head>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
     * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+        font-family: 'Fugaz One', cursive;
 }
 
 body {
@@ -152,7 +154,7 @@ body {
 
 @keyframes roll-odd {
   0% {
-    transform: translateY(-5vw);
+    transform: translateY(-5vmax);
   }
   100% {
     transform: translateY(0);
@@ -161,7 +163,7 @@ body {
 
 @keyframes roll-even {
   0% {
-    transform: translateY(5vw);
+    transform: translateY(5vmax);
   }
   100% {
     transform: translateY(0);
