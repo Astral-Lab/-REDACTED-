@@ -5,14 +5,191 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
 </head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 100px 0;
+  background-color: #181717;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: center;
+  color: white;
+  font-style: italic;
+}
+
+.glitch {
+  position: relative;
+  font-size: 5rem;
+  visibility: hidden;
+  text-shadow: 2px 2px magenta;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: visible;
+  color: white;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  
+  animation: glitch-b 7s infinite;
+}
+
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  visibility: visible;
+  clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+  
+  animation: glitch-a 7s infinite;
+}
+
+@keyframes glitch-a {
+  from {
+    transform: translateX(-50vw)
+  }
+  30% {
+    transform: translateX(0);
+    color: white;
+  }
+  
+}
+
+@keyframes glitch-b {
+  0% {
+    transform: translateX(50vw);
+  }
+  30% {
+    transform: translateX(0);
+    color: white;
+    
+  }
+ 
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: visible;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  animation: fill 7s infinite;
+}
+
+@keyframes fill {
+  30% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+  100% {
+    z-index: 999;
+    color: cyan;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.draw {
+  position: relative;
+  font-size: 5rem;
+  text-shadow: 2px 2px red;
+  
+}
+
+.draw::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: draw 5s infinite;
+  text-decoration: underline;
+}
+
+@keyframes draw {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    color: white;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    color: orange;
+   
+  }
+ 
+}
+
+.roll {
+  font-size: 5rem;
+  text-shadow: 2px 2px magenta;
+  display: flex;
+  overflow: hidden;
+}
+
+.roll div {
+  display: inline-block;
+}
+
+.roll div:nth-child(odd) {
+  color: red;
+  animation: roll-odd 3s infinite;
+}
+
+.roll div:nth-child(even) {
+  color: red;
+  animation: roll-even 3s infinite;
+}
+
+@keyframes roll-odd {
+  0% {
+    transform: translateY(-5vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes roll-even {
+  0% {
+    transform: translateY(5vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+</style>
 <body>
     <div class="container">
-        <div class="glitch">
-          <span>ITS FINAL</span>
-          ITS FINAL
-          <span>ITS FINAL</span>
+        <div class="glitch" data-text="ASTRAL">
+          ASTRAL
+          <div class="fill">ASTRAL</div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="draw" data-text="ASTRAL">
+          ASTRAL
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="roll">
+          <div>A</div>
+          <div>S</div>
+          <div>T</div>
+          <div>R</div>
+          <div>A</div>
+          <div>L</div>
         </div>
       </div>
 </body>
